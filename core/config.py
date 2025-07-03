@@ -19,7 +19,6 @@ def parse_cors(v: Any) -> list[str] | str:
         return v
     raise ValueError(v)
 
-
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file='.env',
