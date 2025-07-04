@@ -1,12 +1,12 @@
 from logging.config import fileConfig
 
-from sqlalchemy import engine_from_config
+from sqlalchemy import Engine, engine_from_config
 from sqlalchemy import pool
 
 from core.config_loader import settings
 from core.database import Base
 from user.models import user
-from bons.models import bon
+from bon.models import bon
 
 from alembic import context
 
