@@ -14,7 +14,7 @@ class Bon(Base):
     contact: Mapped[str] = mapped_column(String(64), nullable=False)
     montant: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     paid: Mapped[bool] = mapped_column(Boolean, default=False)
-    date: Mapped[DateTime] = mapped_column(DateTime, default=datetime.now(timezone.utc), nullable=False)
+    date: Mapped[DateTime] = mapped_column(DateTime, nullable=True)
     created_at: Mapped[DateTime] = mapped_column(DateTime, default=datetime.now(timezone.utc), nullable=False)
     updated_at: Mapped[DateTime] = mapped_column(DateTime, default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc))
     produits: Mapped[List["Produit"]] = relationship(back_populates="bon", cascade="all, delete-orphan")
