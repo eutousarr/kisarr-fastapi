@@ -10,7 +10,7 @@ class BonBase(BaseModel):
 
 
 class BonCreate(BonBase):
-    password: str
+    pass
 
 
 class BonSchema(BonBase):
