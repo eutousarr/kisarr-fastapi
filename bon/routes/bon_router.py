@@ -48,10 +48,11 @@ def bon_update(bon_id: int, bon_data: BonCreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Bon not found")
     return db_bon
 
-@bon_router.get('/{fournisseur}', response_model=list[BonSchema])
+@bon_router.get('/fournisseur/{fournisseur}', response_model=list[BonSchema])
 def get_bons_by_fournisseur_route(fournisseur: str, db: Session = Depends(get_db)):
     db_bons = get_bons_by_fournisseur(db, fournisseur)
     if not db_bons:
         raise HTTPException(status_code=404, detail="No bons found for this fournisseur")
     
     return db_bons
+

@@ -12,12 +12,38 @@ openapi_tags = [
         "description": "User operations",
     },
     {
+        "name": "Auth",
+        "description": "Authentication operations",
+    },
+    {
+        "name": "Bons",
+        "description": "Gestion émis auprès des fournisseurss",
+    },
+    {
         "name": "Health Checks",
         "description": "Application health checks",
     }
 ]
 
-app = FastAPI(openapi_tags=openapi_tags)
+app = FastAPI(
+        openapi_tags=openapi_tags,
+        title="KisarrWeb Backend API",
+        description="KisarrWeb is a web application for managing your personal finances, including income, expenses, and bills.",
+        version="1.0.0",
+        contact={
+            "name": "KisarrWeb Team",
+            "email": "kisarrweb@gmail.com"
+            
+            },
+        license_info={
+            "name": "MIT License",
+            "url": "https://opensource.org/license/mit/"
+        },
+        docs_url="/docs",
+        redoc_url="/redoc",
+        openapi_url="/openapi.json",
+    )
+    
 
 if settings.BACKEND_CORS_ORIGINS:
     app.add_middleware(

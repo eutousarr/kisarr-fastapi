@@ -18,7 +18,6 @@ def create_bon(db: Session, bon: BonCreate):
         contact=bon.contact,
         montant=bon.montant,
         paid=bon.paid,
-        date=bon.date
     )
     db.add(db_bon)
     db.commit()
@@ -39,7 +38,6 @@ def update_bon(db: Session, bon_id: int, bon_data: BonCreate):
         db_bon.contact = bon_data.contact
         db_bon.montant = bon_data.montant
         db_bon.paid = bon_data.paid
-        db_bon.date = bon_data.date
         db.commit()
         db.refresh(db_bon)
     return db_bon
@@ -47,4 +45,5 @@ def update_bon(db: Session, bon_id: int, bon_data: BonCreate):
 def get_bons_by_fournisseur(db: Session, fournisseur: str):
     return db.query(Bon).filter(Bon.fournisseur == fournisseur).all()
 
-
+def get_bons_by_user(db: Session, user_id: int):
+    return db.query(Bon).filter(Bon.user_id == user_id).all()

@@ -1,3 +1,4 @@
+from datetime import datetime
 from pydantic import BaseModel
 
 
@@ -6,8 +7,6 @@ class BonBase(BaseModel):
     contact: str
     montant: int = 0
     paid: bool = False
-    date: str  # ISO format date string
-
 
 class BonCreate(BonBase):
     pass
@@ -15,6 +14,9 @@ class BonCreate(BonBase):
 
 class BonSchema(BonBase):
     id: int
+    date: datetime | None = None  # Optional, as it can be null
+    user_id: int | None = None  # Optional, as it can be null   
+    
 
     class Config:
         from_attributes = True

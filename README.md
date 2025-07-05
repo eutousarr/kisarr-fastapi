@@ -72,3 +72,6 @@ Start the local server:
 ```
 fastapi dev main.py
 ```
+
+
+postgres://neondb_owner:npg_J5fbrheqg6KM@ep-proud-frost-a466jbou-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require
